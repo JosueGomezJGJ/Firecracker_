@@ -1,10 +1,36 @@
+import { RedirectToSignIn } from "@clerk/nextjs";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 const isPublicRoute = createRouteMatcher(["/login(.*)", "/signup(.*)", "/"]);
 
 export default clerkMiddleware((auth, request) => {
   if (!isPublicRoute(request)) {
-    auth().protect();
+    auth().protect(); // Protect all non-public routes
+  }
+
+  // Redirect based on authentication and organization status
+  if (auth().userId && isPublicRoute(request)) {
+    let path = "/select-org";
+
+    if (auth().orgId) {
+      path = `/organization/${auth().orgId}`;
+    }
+
+    const redirectTo = new URL(path, request.url);
+    return NextResponse.redirect(redirectTo);
+  }
+
+  if (!auth().userId && !isPublicRoute(request)) {
+    return NextResponse.redirect("/login");
+  }
+
+  if (
+    auth().userId &&
+    !auth().orgId &&
+    request.nextUrl.pathname !== "/select-org"
+  ) {
+    return NextResponse.redirect("/select-org");
   }
 });
 
