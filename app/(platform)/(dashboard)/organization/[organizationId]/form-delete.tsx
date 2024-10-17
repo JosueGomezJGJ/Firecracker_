@@ -7,7 +7,7 @@ export const FormDeleteButton = () => {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" variant={"destructive"} disabled={pending}>
-      Submit
+      Delete Board
     </Button>
   );
 };
