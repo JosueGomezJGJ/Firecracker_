@@ -4,7 +4,6 @@
     "@typescript-eslint/no-empty-object-type": "off",
     "no-var": "off",
     "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    " react/jsx-key": "off"
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
