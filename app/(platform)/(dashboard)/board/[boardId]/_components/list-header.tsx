@@ -6,7 +6,6 @@ import { FormInput } from "@/components/form/form-input";
 import { updateList } from "@/actions/update-list";
 import { useAction } from "@/hooks/use-action";
 import { toast } from "sonner";
-import { Plus } from "lucide-react";
 import { ListOptions } from "./list-options";
 
 interface ListHeaderProps {

@@ -10,7 +10,7 @@ interface ListContainerProps {
   boardId: string;
 }
 
-export const ListContainer = ({ data, boardId }: ListContainerProps) => {
+export const ListContainer = ({ data }: ListContainerProps) => {
   const [orderedData, setOrderedData] = useState(data);
 
   useEffect(() => {

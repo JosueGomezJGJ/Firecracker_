@@ -1,5 +1,3 @@
-import { chdir } from "process";
-
 interface ListWrapperProps {
   children: React.ReactNode;
 }
