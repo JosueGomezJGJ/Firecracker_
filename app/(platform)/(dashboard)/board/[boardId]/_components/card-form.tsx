@@ -26,7 +26,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
 
     const { execute, fieldErrors } = useAction(createCard, {
       onSuccess: (data) => {
-        toast.success(`Card "${data.title}" created successfully`);
+        toast.success(`Card "${data.title}" created`);
         formRef.current?.reset();
         disableEditing();
       },
@@ -74,7 +74,8 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
             placeholder="Enter a title for this card..."
             errors={fieldErrors}
           />
-          <input hidden id="listId" name="listId" value={listId} />
+          <input hidden id="listId" name="listId" value={listId} readOnly />
+
           <div className="flex items-center gap-x-1">
             <FormSubmit>Add card</FormSubmit>
             <Button onClick={disableEditing} size="sm" variant={"ghost"}>
