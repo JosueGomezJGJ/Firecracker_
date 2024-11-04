@@ -76,7 +76,7 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
 
     //If the user drops a card
     if (type === "card") {
-      let newOrderedData = [...orderedData];
+      const newOrderedData = [...orderedData];
 
       //Source and destination list
       const sourceList = newOrderedData.find(
