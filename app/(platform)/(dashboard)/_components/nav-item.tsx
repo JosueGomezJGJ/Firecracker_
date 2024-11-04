@@ -2,7 +2,7 @@
 import { useRouter, usePathname } from "next/navigation";
 
 import Image from "next/image";
-import { Activity, Layout, Settings } from "lucide-react";
+import { Activity, Layout, MessageCircle, Settings } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -47,15 +47,15 @@ export const NavItem = ({
       href: `/organization/${organization.id}/activity`,
     },
     {
+      label: "Messages",
+      icon: <MessageCircle className="h-4 w-4 mr-2" />,
+      href: `/organization/${organization.id}/messages`,
+    },
+    {
       label: "Settings",
       icon: <Settings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
     },
-    // {
-    //   label: "Billing",
-    //   icon: <CreditCard className="h-4 w-4 mr-2" />,
-    //   href: `/organization/${organization.id}/billing`,
-    // },
   ];
 
   const onClick = (href: string) => {
