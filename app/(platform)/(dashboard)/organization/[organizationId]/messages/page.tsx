@@ -1,11 +1,16 @@
-"use client";
+import { Separator } from "@/components/ui/separator";
+import { Info } from "../_components/info";
+import { UserList } from "./_components/user-list";
+import { Suspense } from "react";
 
-const MessagesPage = () => {
+const UsersPage = () => {
   return (
-    <div className="w-full p-4">
-      <h1 className="text-2xl font-bold mb-4">Messages</h1>
+    <div className="w-full">
+      <Suspense fallback={<UserList.Skeleton />}>
+        <UserList />
+      </Suspense>
     </div>
   );
 };
 
-export default MessagesPage;
+export default UsersPage;
