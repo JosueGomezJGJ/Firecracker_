@@ -2,7 +2,7 @@
 import { useRouter, usePathname } from "next/navigation";
 
 import Image from "next/image";
-import { Activity, Layout, MessageCircle, Settings } from "lucide-react";
+import { Activity, Layout, MessageCircle, Book, Settings } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -50,6 +50,11 @@ export const NavItem = ({
       label: "Messages",
       icon: <MessageCircle className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/messages`,
+    },
+    {
+      label: "Notebook", 
+      icon: <Book className="h-4 w-4 mr-2" />, 
+      href: `/organization/${organization.id}/notebook`, 
     },
     {
       label: "Settings",
